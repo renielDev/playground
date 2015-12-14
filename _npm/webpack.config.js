@@ -1,14 +1,17 @@
+var webpack = require("webpack");
+
+var PROD = JSON.parse(process.env.PROD_DEV || "0");
+PROD = 1; // FOR DISTRIBUTION /** MINIFIED JS **/
 module.exports = {
-    entry: "./entry.js",
-    output: {
-        path: __dirname,
-        filename: "bundle.js"
-    },
-    module: {
-        loaders: [{
-            test: /\.css$/, loader: "style!css",
-//            resolveLoader: { fallback: __dirname + "/node_modules" },
-//            exclude: /(node_modules)/,
-        }]
-    }
+
+  entry: "./js/entry.js",
+  devtool: "source-map",
+  output: {
+    path: "./dist",
+    filename: PROD ? "bundle.min.js" : "bundle.js"
+  },
+  plugins: PROD ? [
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
+  ] : []
+  
 };
