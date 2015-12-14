@@ -1,0 +1,15 @@
+{
+  "name": "npm_proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "renielDev",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.0",
+    "style-loader": "^0.13.0"
+  }
+}
